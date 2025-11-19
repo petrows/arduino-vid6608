@@ -23,8 +23,7 @@ This library has following features:
 * Optimized homing
 * Extended API's
 
-
-
+![Moving example](doc/output.gif)
 
 ## Setting zero
 
@@ -66,11 +65,4 @@ void loop(void)
   // the motor only moves when you call update
   motor1.loop();
 }
-```
-
-
-
-```
-export PLATFORMIO_CI_SRC=examples/RandomMove/RandomMove.cpp
-platformio ci --board uno -l src/
 ```

@@ -29,8 +29,13 @@ RUN pip install platformio==6.1.18
 COPY platformio.ini /tmp/
 RUN <<PIO
   cd /tmp/
+  # Install common packages
   platformio pkg install
+  # Install required tools
+  platformio pkg install -t platformio/tool-cppcheck
+  # Cleanup
   rm -rf /tmp/*
+  # Allow this image to run under non-root
   chmod -R 777 $HOME
 PIO
 
