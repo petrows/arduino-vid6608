@@ -1,5 +1,5 @@
 # Dockerfile to build platformio
-FROM ubuntu:24.04
+FROM petrows/arduino-vid6608:latest
 
 RUN <<PKG
   set -e
@@ -15,13 +15,13 @@ PKG
 
 # Python virtual env
 ENV VIRTUAL_ENV=/var/venv
-RUN mkdir -m 777 $VIRTUAL_ENV
+RUN mkdir -p -m 777 $VIRTUAL_ENV
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Default env
 ENV HOME=/opt/home
-RUN mkdir -m 777 $HOME
+RUN mkdir -p -m 777 $HOME
 
 RUN pip install platformio==6.1.18
 
@@ -33,6 +33,7 @@ RUN <<PIO
   platformio pkg install
   # Install required tools
   platformio pkg install -t platformio/tool-cppcheck
+  platformio pkg install -t platformio/tool-clangtidy
   # Cleanup
   rm -rf /tmp/*
   # Allow this image to run under non-root
