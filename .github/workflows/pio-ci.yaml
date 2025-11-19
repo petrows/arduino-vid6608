@@ -2,7 +2,9 @@ name: PlatformIO CI
 on: [push]
 jobs:
   build:
-    runs-on: petrows/arduino-vid6608:1c92889
+    runs-on: self-hosted
+    container:
+      image: petrows/arduino-vid6608:e9879e0
     strategy:
       matrix:
         example: [examples/RandomMove/RandomMove.cpp]
@@ -12,3 +14,11 @@ jobs:
         run: pio ci --project-conf platformio.ini -l src/
         env:
           PLATFORMIO_CI_SRC: ${{ matrix.example }}
+  check:
+    runs-on: self-hosted
+    container:
+      image: petrows/arduino-vid6608:e9879e0
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run PlatformIO checks
+        run: pio check
