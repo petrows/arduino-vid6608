@@ -5,24 +5,34 @@ jobs:
     runs-on: self-hosted
     container:
       image: petrows/arduino-vid6608:e9879e0
-      env:
-        HOME: /opt/home
     strategy:
       matrix:
         example: [examples/RandomMove/RandomMove.cpp]
     steps:
       - uses: actions/checkout@v4
       - name: Build PlatformIO examples
-        run: pio ci --project-conf platformio.ini -l src/
+        run: |
+            echo "::group::pio ci"
+            # We have to enforce $HOME here, to skip runtime installation
+            # See Dockerfile for static environment
+            export HOME=/opt/home
+            export CI=true
+
+            pio ci --project-conf platformio.ini -l src/
         env:
           PLATFORMIO_CI_SRC: ${{ matrix.example }}
   check:
     runs-on: self-hosted
     container:
       image: petrows/arduino-vid6608:e9879e0
-      env:
-        HOME: /opt/home
     steps:
       - uses: actions/checkout@v4
       - name: Run PlatformIO checks
-        run: pio check
+        run: |
+            echo "::group::pio check"
+            # We have to enforce $HOME here, to skip runtime installation
+            # See Dockerfile for static environment
+            export HOME=/opt/home
+            export CI=true
+
+            pio check
