@@ -2,13 +2,13 @@ name: PlatformIO CI
 on: [push]
 jobs:
   build:
-    runs-on: petrows/arduino-vid6608:8a2e07
+    runs-on: petrows/arduino-vid6608:1c92889
     strategy:
       matrix:
         example: [examples/RandomMove/RandomMove.cpp]
     steps:
       - uses: actions/checkout@v4
       - name: Build PlatformIO examples
-        run: pio ci --board=uno --board=esp32doit-devkit-v1 --board=d1_mini_pro
+        run: pio ci --project-conf platformio.ini -l src/
         env:
           PLATFORMIO_CI_SRC: ${{ matrix.example }}
