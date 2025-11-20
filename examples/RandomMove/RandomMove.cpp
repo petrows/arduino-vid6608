@@ -4,9 +4,8 @@
 // standard X25.168 range 315 degrees at 1/3 degree steps
 #define STEPS (320 * 12)
 
-#define PIN_STEP 26
-#define PIN_DIR 27
-#define PIN_RESET 2
+#define PIN_STEP 26 // Pin, connected to f(scx)
+#define PIN_DIR 27  // Pin. connected to CW/CCW
 
 // Custom Acceleration table for the X27.168
 // Proposed non-linear curve by ChatGPT

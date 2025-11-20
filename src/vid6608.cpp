@@ -1,6 +1,6 @@
-/*
+/**
  * VID6608 gauge motor driver library
- * by Petrows, 2025
+ * by Petr Golovachev <petro@petro.ws>, 2025
  *
  * https://github.com/petrows/arduino-vid6608
  *
