@@ -1,7 +1,7 @@
 {
     "name": "vid6608",
     "keywords": "driver, motor, control",
-    "description": "Arduino library for driving IC VID6608 and clones for Switec X25.168 miniature stepper motors",
+    "description": "Arduino library for driving IC VID6608 and clones for Switec X25.168 / X27.168 miniature stepper motors",
     "homepage": "https://github.com/petrows/arduino-vid6608",
     "repository":
     {

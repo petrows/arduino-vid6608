@@ -1,7 +1,9 @@
 # Gauge stepper motor Switec X25.168 driver for VID6608 and clones
 
+![Moving example](doc/output.gif)
+
 This library implements driver for Arduino framework
-for following driver chips for analog automotive gauges (Switec X25.168 and clones) with microstepping support:
+for following driver chips for analog automotive gauges (Switec X25.168, X27.168 and clones) with microstepping support:
 
 * VID6606 (2 motors)
 * VID6608 (4 motors)
@@ -23,7 +25,7 @@ This library has following features:
 * Optimized homing
 * Extended API's
 
-![Moving example](doc/output.gif)
+[![PlatformIO Registry](https://badges.registry.platformio.org/packages/petrows/library/vid6608.svg)](https://registry.platformio.org/libraries/petrows/vid6608)
 
 ## Chip documentation
 
