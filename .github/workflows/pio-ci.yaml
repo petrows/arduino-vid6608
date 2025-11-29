@@ -5,6 +5,7 @@ jobs:
     runs-on: self-hosted
     container:
       image: petrows/arduino-vid6608:e9879e0
+      options: -u 2025:2025
     strategy:
       matrix:
         example: [examples/RandomMove/RandomMove.cpp]
@@ -25,6 +26,7 @@ jobs:
     runs-on: self-hosted
     container:
       image: petrows/arduino-vid6608:e9879e0
+      options: -u 2025:2025
     steps:
       - uses: actions/checkout@v4
       - name: Run PlatformIO checks
