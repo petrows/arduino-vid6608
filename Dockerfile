@@ -1,10 +1,11 @@
 # Dockerfile to build platformio
-FROM petrows/arduino-vid6608:latest
+FROM petrows/arduino-vid6608:e9879e0
 
 RUN <<PKG
   set -e
   apt-get -qq update
   apt-get install -y --no-install-recommends \
+      git \
       python3 \
       python3-pip \
       python3-venv \
