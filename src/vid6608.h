@@ -23,6 +23,13 @@
  * this value is default only, can be changed as argument, @see vid6608::zero()
  */
 #define VID6608_DEFAULT_ZERO_SPEED 600
+/**
+ * @brief Additional pull-up to zero
+ * This can be necessary for some drivers, if the zero poisition appears unaccurate,
+ * affects some bi-axial drivers whith internal mechanic jitter.
+ * Set to 0 to deactivate pull-up.
+ */
+#define VID6608_ZERO_PULLUP_STEPS 6
 
 /**
  * @brief Driver object class

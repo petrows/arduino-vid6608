@@ -13,7 +13,7 @@
       "email": "petro@petro.ws",
       "url": "https://petro.ws/"
     },
-    "version": "1.0.3",
+    "version": "1.0.4",
     "frameworks": "arduino",
     "platforms": "*"
 }

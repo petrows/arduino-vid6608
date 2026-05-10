@@ -73,6 +73,12 @@ void vid6608::zero(uint16_t initialPos /*= VID6608_DEFAULT_MAX_STEPS/2*/, uint16
   for (uint16_t x = 0; x < this->maxSteps; x++) {
     step(MOVE_BACKWARD, delay);
   }
+  // Move back for more steps with low speed for precise zero set, if allowed
+  if (VID6608_ZERO_PULLUP_STEPS) {
+    for (uint16_t x = 0; x < VID6608_ZERO_PULLUP_STEPS; x++) {
+      step(MOVE_BACKWARD, delay * 10);
+    }
+  }
   // Reset values
   this->currentPosition = 0;
   this->targetPosition = 0;
